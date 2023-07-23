@@ -33,8 +33,8 @@
 
         </main>
 
-        @include('layouts.partials.scripts')
-        @livewireScripts
+    @include('layouts.partials.scripts')
+    @livewireScripts
     </body>
 
     </html>

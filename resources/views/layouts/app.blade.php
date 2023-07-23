@@ -22,6 +22,7 @@
     <meta name="theme-color" content="#ffffff">
 
 @include('layouts.partials.styles')
+@livewireStyles
 </head>
 
 <body>
@@ -37,7 +38,7 @@
         @include('layouts.components.footer')
     </main>
 @include('layouts.partials.scripts')
-    
+@livewireScripts
 </body>
 
 </html>
