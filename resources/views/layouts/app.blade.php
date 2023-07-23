@@ -26,10 +26,15 @@
 
 <body>
 
-    <main>
+@include('layouts.components.sidebar')
+    
+    <main class="content">
+
+        @include('layouts.components.nav')
 
         {{ $slot }}
 
+        @include('layouts.components.footer')
     </main>
 @include('layouts.partials.scripts')
     
