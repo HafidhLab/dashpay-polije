@@ -2,11 +2,14 @@
 
 namespace App\Http\Livewire\Auth;
 
+use App\Http\Requests\Auth\LoginRequest;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Login extends Component
 {
     public $email, $password;
+    public $remember = false;
 
     protected $rules = [
         'email' => 'required|email',
@@ -19,8 +22,24 @@ class Login extends Component
             ->layout('layouts.auth');
     }
 
-    public function login()
+    public function login(LoginRequest $request)
     {
         $this->validate();
+        $request->authenticate($this->email, $this->password, $this->remember);
+
+        return to_route($this->redirectToRoute());
+    }
+
+    private function redirectToRoute(): string
+    {
+        $user = Auth::user();
+        $redirects = [
+            'superuser' => 'superuser.dashboard',
+            'auditor' => 'auditor.dashboard',
+            'admin' => 'admin.dashboard',
+        ];
+
+        foreach($redirects as $role => $route)
+            if($user->hasRole($role)) return $route;
     }
 }
