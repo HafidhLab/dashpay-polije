@@ -38,6 +38,8 @@
         @include('layouts.components.footer')
     </main>
 @include('layouts.partials.scripts')
+@stack('scripts')
+
 @livewireScripts
 </body>
 
