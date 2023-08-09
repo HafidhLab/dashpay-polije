@@ -37,6 +37,7 @@ class Login extends Component
             'superuser' => 'superuser.dashboard',
             'auditor' => 'auditor.dashboard',
             'admin' => 'admin.dashboard',
+            'merchant' => 'merchant.dashboard'
         ];
 
         foreach($redirects as $role => $route)

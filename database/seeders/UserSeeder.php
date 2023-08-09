@@ -32,8 +32,15 @@ class UserSeeder extends Seeder
             'password' => Hash::make('auditor123'),
         ]);
 
+        $merchant = User::create([
+            'name' => 'Merchant',
+            'email' => 'merchant@mail.com',
+            'password' => Hash::make('merchant123'),
+        ]);
+
         $superuser->assignRole('superuser');
         $admin->assignRole('admin');
         $auditor->assignRole('auditor');
+        $merchant->assignRole('merchant');
     }
 }
