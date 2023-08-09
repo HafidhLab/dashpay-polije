@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Merchant;
 
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
 {
@@ -12,7 +15,7 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -20,7 +23,7 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        //
+        return view('merchant.transaction.create');
     }
 
     /**
@@ -28,7 +31,11 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $attr = $request->all();
+        $attr['user_merchant'] = Auth::user()->id;
+
+        Transaction::create($attr);
+        return back();
     }
 
     /**
@@ -58,8 +65,9 @@ class TransactionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Transaction $transaction)
+    public function destroy($id)
     {
-        //
+        Transaction::find($id)->delete();
+        return back();
     }
 }

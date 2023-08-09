@@ -108,8 +108,8 @@
             <span class="mt-1 ms-1 sidebar-text">Volt Overview</span>
           </a>
         </li>
-        <li class="nav-item active">
-          <a href="../../pages/dashboard/dashboard.html" class="nav-link">
+        <li class="nav-item">
+          <a href="{{ route('merchant.dashboard') }}" class="nav-link">
             <span class="sidebar-icon">
               <svg
                 class="icon icon-xs me-2"
@@ -126,8 +126,7 @@
         </li>
         <li class="nav-item">
           <a
-            href="https://demo.themesberg.com/volt-pro/pages/kanban.html"
-            target="_blank"
+            href="{{ route('merchant.topup.index') }}"
             class="nav-link d-flex justify-content-between"
           >
             <span>
@@ -143,7 +142,7 @@
                   ></path>
                 </svg>
               </span>
-              <span class="sidebar-text">Kanban</span>
+              <span class="sidebar-text">Top Up</span>
             </span>
             <span>
               <span class="badge badge-sm bg-secondary ms-1 text-gray-800"

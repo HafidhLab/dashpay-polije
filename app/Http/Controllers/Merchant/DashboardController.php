@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Merchant;
 
 use App\Http\Controllers\Controller;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -12,6 +13,7 @@ class DashboardController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('merchant.dashboard');
+        $transactions = Transaction::all();
+        return view('merchant.dashboard', compact('transactions'));
     }
 }
