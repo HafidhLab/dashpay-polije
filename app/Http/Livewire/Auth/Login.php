@@ -36,7 +36,7 @@ class Login extends Component
         $redirects = [
             'superuser' => 'superuser.dashboard',
             'auditor' => 'auditor.dashboard',
-            'admin' => 'admin.dashboard',
+            'user' => 'user.dashboard',
             'merchant' => 'merchant.dashboard'
         ];
 

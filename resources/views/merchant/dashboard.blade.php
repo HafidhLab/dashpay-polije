@@ -30,12 +30,12 @@
                             </a>
                         </td>
                         <td>
-                            <span class="fw-normal">{{ $transaction->user_id }}</span>
+                            <span class="fw-normal">{{ $transaction->user->name }}</span>
                         </td>
                         <td><span class="fw-normal">{{ $transaction->name_item }}</span></td>                        
                         <td><span class="fw-normal">{{ $transaction->price_product }}</span></td>
                         <td><span class="fw-bold">{{ $transaction->total }}</span></td>
-                        <td>
+                        <td> 
                             <div class="btn-group">
                                 <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="icon icon-sm">
@@ -44,9 +44,7 @@
                                     <span class="visually-hidden">Toggle Dropdown</span>
                                 </button>
                                 <div class="dropdown-menu py-0">
-                                    <a class="dropdown-item rounded-top" href="#"><span class="fas fa-eye me-2"></span>View Details</a>
-                                    <a class="dropdown-item" href="#"><span class="fas fa-edit me-2"></span>Edit</a>
-                                        <a class="dropdown-item text-danger rounded-bottom" href="{{ route('merchant.transaction.destroy', $transaction->id) }}"><span class="fas fa-trash-alt me-2"></span>Remove</a>
+                                    <a class="dropdown-item text-danger rounded-bottom" href="{{ route('merchant.transaction.destroy', $transaction->id) }}"><span class="fas fa-trash-alt me-2"></span>Remove</a>
                                 </div>
                             </div>
                         </td>

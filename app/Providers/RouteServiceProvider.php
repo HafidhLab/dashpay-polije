@@ -38,9 +38,9 @@ class RouteServiceProvider extends ServiceProvider
                     ->name('superuser.')
                     ->group(base_path('routes/web/superuser.php'));
 
-                Route::prefix('admin')
-                    ->name('admin.')
-                    ->group(base_path('routes/web/admin.php'));
+                Route::prefix('user')
+                    ->name('user.')
+                    ->group(base_path('routes/web/user.php'));
 
                 Route::prefix('auditor')
                     ->name('auditor.')

@@ -108,8 +108,19 @@
             <span class="mt-1 ms-1 sidebar-text">Volt Overview</span>
           </a>
         </li>
+        @php
+            $merchant = Auth::user()->hasRole('merchant');
+            $user = Auth::user()->hasRole('user')
+        @endphp 
         <li class="nav-item">
-          <a href="{{ route('merchant.dashboard') }}" class="nav-link">
+          <a href="
+            
+            @if($merchant)
+              {{ route('merchant.dashboard') }}
+            @elseif($user)
+              {{ route('user.dashboard') }}
+            @endif
+          " class="nav-link">
             <span class="sidebar-icon">
               <svg
                 class="icon icon-xs me-2"
@@ -124,6 +135,7 @@
             <span class="sidebar-text">Dashboard</span>
           </a>
         </li>
+        @role('merchant')
         <li class="nav-item">
           <a
             href="{{ route('merchant.topup.index') }}"
@@ -151,6 +163,7 @@
             </span>
           </a>
         </li>
+        @endrole
         <li class="nav-item">
           <a
             href="../../pages/upgrade-to-pro.html"

@@ -6,6 +6,7 @@ use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
+use App\Models\Balance;
 use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
@@ -31,9 +32,10 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
+
         $attr = $request->all();
         $attr['user_merchant'] = Auth::user()->id;
-
+        $attr['status'] = 'unpaid';
         Transaction::create($attr);
         return back();
     }

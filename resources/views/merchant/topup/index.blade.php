@@ -5,7 +5,7 @@
         <div class="col-12 col-xl-8">
             <div class="card card-body border-0 shadow mb-4">
                 <h2 class="h5 mb-4">General information</h2>
-                <form action="#" method="POST" autocomplete="off">
+                <form action="{{ route('merchant.topup.saldo') }}" method="POST" autocomplete="off">
                     @csrf
 
                     <div class="row">
@@ -17,7 +17,7 @@
                             required
                             />
                         <x-forms.input
-                            name="saldo"
+                            name="balance"
                             label="Saldo Saat ini"
                             placeholder=""
                             type="text"

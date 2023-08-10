@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('name_item');
             $table->string('price_product');
             $table->string('total');
-
+            $table->enum('status', ['paid', 'unpaid', 'failed', 'canceled']);
+            $table->string('information')->nullable();
 
             $table->timestamps();
             
