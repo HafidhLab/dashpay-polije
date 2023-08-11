@@ -49,6 +49,10 @@ class RouteServiceProvider extends ServiceProvider
                 Route::prefix('merchant')
                     ->name('merchant.')
                     ->group(base_path('routes/web/merchant.php'));
+
+                Route::prefix('select2')
+                    ->name('select2.')
+                    ->group(base_path('routes/select2.php'));
             });
 
             Route::middleware('web')

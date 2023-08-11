@@ -1,6 +1,7 @@
-<x-app-layout>   
+<x-app-layout>
     <x-breadcumb/>
-    
+    <x-vendor.select2/>
+
     <div class="row">
         <div class="col-12 col-xl-8">
             <div class="card card-body border-0 shadow mb-4">
@@ -9,13 +10,13 @@
                     @csrf
 
                     <div class="row">
-                        <x-forms.input 
-                            name="user_id"
-                            label="User Pembeli"
-                            placeholder="Pilih User"
-                            type="text"
-                            required
-                            />
+                        <div class="col-md-6 mb-3">
+                            <label for="user">Pembeli</label>
+                            <select name="user_id" id="user" class="form-control">
+                                <option value="">-- Pilih --</option>
+                            </select>
+                        </div>
+
                         <x-forms.input
                             name="name_item"
                             label="Nama barang"
@@ -47,4 +48,16 @@
             </div>
         </div>
     </div>
+
+@push('script')
+<script>
+    $('#user').select2({
+        ajax: {
+            url: '{{ route('select2.users.user') }}',
+            method: 'POST',
+        }
+    });
+</script>
+@endpush
+
 </x-app-layout>
