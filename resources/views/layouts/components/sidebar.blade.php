@@ -135,6 +135,7 @@
             <span class="sidebar-text">Dashboard</span>
           </a>
         </li>
+
         @role('merchant')
         <li class="nav-item">
           <a
@@ -188,6 +189,7 @@
             <span>Upgrade to Pro</span>
           </a>
         </li>
+
       </ul>
     </div>
   </nav>
