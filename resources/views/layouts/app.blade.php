@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- Primary Meta Tags -->
     <title>{{ config('app.name', 'Laravel') }}</title>
@@ -22,13 +22,14 @@
     <meta name="theme-color" content="#ffffff">
 
 @include('layouts.partials.styles')
+@stack('style')
 @livewireStyles
-</head>
 
+</head>
 <body>
 
 @include('layouts.components.sidebar')
-    
+
     <main class="content">
 
         @include('layouts.components.nav')
@@ -37,8 +38,9 @@
 
         @include('layouts.components.footer')
     </main>
+
 @include('layouts.partials.scripts')
+@stack('script')
 @livewireScripts
 </body>
-
 </html>

@@ -38,13 +38,21 @@ class RouteServiceProvider extends ServiceProvider
                     ->name('superuser.')
                     ->group(base_path('routes/web/superuser.php'));
 
-                Route::prefix('admin')
-                    ->name('admin.')
-                    ->group(base_path('routes/web/admin.php'));
+                Route::prefix('user')
+                    ->name('user.')
+                    ->group(base_path('routes/web/user.php'));
 
                 Route::prefix('auditor')
                     ->name('auditor.')
                     ->group(base_path('routes/web/auditor.php'));
+
+                Route::prefix('merchant')
+                    ->name('merchant.')
+                    ->group(base_path('routes/web/merchant.php'));
+
+                Route::prefix('select2')
+                    ->name('select2.')
+                    ->group(base_path('routes/select2.php'));
             });
 
             Route::middleware('web')
