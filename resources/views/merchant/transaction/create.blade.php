@@ -17,17 +17,24 @@
                             </select>
                         </div>
 
-                        <x-forms.input
-                            name="name_item"
-                            label="Nama barang"
-                            placeholder="Nama Barang"
-                            type="text"
-                            required
-                            />
+                        <div class="col-md-6 mb-3">
+                            <label>Kode Barang</label>
+                            <select name="code_product" id="code_product" class="form-control">
+                                <option value="">-- Pilih --</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="row align-items-center">
                         <x-forms.input
-                            name="price_product"
+                            name="name"
+                            label="Nama Barang"
+                            placeholder="Nama Barang"
+                            type="text"
+                            disabled
+                            required
+                            />
+                        <x-forms.input
+                            name="qty"
                             label="Barang satuan"
                             placeholder="Barang Satuan"
                             type="number"
@@ -57,6 +64,37 @@
             method: 'POST',
         }
     });
+    $('#code_product').select2({
+        ajax: {
+            url: '{{ route('select2.product') }}',
+            method: 'POST',
+        }
+    });
+
+    $(function(){
+        $('#code_product').on('change', function(){
+            var id = $(this).val()
+                
+            $.get(`/api/get-product-data/${id}`, function(data) {
+                $('#name').val(data.name);
+
+                $('#qty').on('keyup', function () {
+                    var qty = parseInt($(this).val());
+                    var total = qty * data.price;
+
+                    $('#total').val(total);
+                });
+                
+                if ($('qty').val() == null) {
+                    $('#total').val(data.price);
+                }
+
+            }).fail(function() {
+                alert('An error occurred while fetching user data');
+            });  // 
+        })
+    })
+
 </script>
 @endpush
 
