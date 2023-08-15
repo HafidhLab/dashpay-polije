@@ -26,15 +26,15 @@
                     </div>
                     <div class="row align-items-center">
                         <x-forms.input
-                            name="name"
+                            name="name_item"
                             label="Nama Barang"
                             placeholder="Nama Barang"
                             type="text"
-                            disabled
+                            readonly
                             required
                             />
                         <x-forms.input
-                            name="qty"
+                            name="price_product"
                             label="Barang satuan"
                             placeholder="Barang Satuan"
                             type="number"
@@ -76,16 +76,16 @@
             var id = $(this).val()
                 
             $.get(`/api/get-product-data/${id}`, function(data) {
-                $('#name').val(data.name);
+                $('#name_item').val(data.name);
 
-                $('#qty').on('keyup', function () {
+                $('#price_product').on('keyup', function () {
                     var qty = parseInt($(this).val());
                     var total = qty * data.price;
 
                     $('#total').val(total);
                 });
                 
-                if ($('qty').val() == null) {
+                if ($('#price_product').val() == null) {
                     $('#total').val(data.price);
                 }
 
