@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-breadcumb/>
+    <x-breadcumb title="Dashboard"/>
 
     <div class="row">
         <div class="col-lg-6">

@@ -1,11 +1,10 @@
 <x-app-layout>
-    <x-breadcumb/>
+    <x-breadcumb title="List Produk"/>
 
     <div class="card">
         <div class="card-header">
             <div class="d-flex justify-content-between">
-                <h2 class="h5">List Produk</h2>
-                <a href="{{ route('merchant.product.create') }}" class="btn btn-primary btn-sm">Tambah</a>
+                <a href="{{ route('merchant.product.create') }}" class="btn btn-primary btn-sm">Tambah Produk</a>
             </div>
         </div>
         <div class="card-body border-0 shadow table-wrapper">
@@ -41,9 +40,9 @@
                                     </span>
                                     <span class="visually-hidden">Toggle Dropdown</span>
                                 </button>
-                                      <div class="dropdown-menu py-0">
                                 <div class="dropdown-menu py-0">
-                                    <a class="dropdown-item text-danger rounded-bottom" href="{{ route('merchant.product.destroy', $product->id) }}"><span class="fas fa-trash-alt me-2"></span>Remove</a>
+                                    <a class="dropdown-item" href="{{ route('merchant.product.edit', $product->id) }}"><span class="fas fa-edit me-2"></span>Edit</a>
+                                    <a class="dropdown-item text-danger rounded-bottom" href="{{ route('merchant.product.destroy', $product->id) }}"><span class="fas fa-trash-alt me-2"></span>Hapus {{ $product->name_item }}</a>
                                 </div>
                             </div>
                         </td>

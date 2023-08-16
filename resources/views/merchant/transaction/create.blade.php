@@ -1,11 +1,10 @@
 <x-app-layout>
-    <x-breadcumb/>
+    <x-breadcumb title="Tambah Transaksi"/>
     <x-vendor.select2/>
 
     <div class="row">
         <div class="col-12 col-xl-8">
             <div class="card card-body border-0 shadow mb-4">
-                <h2 class="h5 mb-4">General information</h2>
                 <form action="{{ route('merchant.transaction.store') }}" method="POST" autocomplete="off">
                     @csrf
 

@@ -15,7 +15,7 @@
         placeholder="Nama Barang"
         type="text"
         required
-        :value="old('name') ?? $product->name"
+        :value="old('name') ?? $product->name_item"
         />
     <x-forms.input
         name="price"
