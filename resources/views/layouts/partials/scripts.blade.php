@@ -1,3 +1,4 @@
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 
@@ -15,3 +16,8 @@
 
 <script src="/vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>
 <script src="/assets/js/volt.js"></script>
+<script>
+    $.ajaxSetup({
+        headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}'},
+    });
+</script>

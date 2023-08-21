@@ -20,10 +20,10 @@ class UserSeeder extends Seeder
             'password' => Hash::make('superuser123'),
         ]);
 
-        $admin = User::create([
-            'name' => 'Administrator',
-            'email' => 'admin@mail.com',
-            'password' => Hash::make('admin123'),
+        $user = User::create([
+            'name' => 'user',
+            'email' => 'user@mail.com',
+            'password' => Hash::make('userr123'),
         ]);
 
         $auditor = User::create([
@@ -32,8 +32,15 @@ class UserSeeder extends Seeder
             'password' => Hash::make('auditor123'),
         ]);
 
+        $merchant = User::create([
+            'name' => 'Merchant',
+            'email' => 'merchant@mail.com',
+            'password' => Hash::make('merchant123'),
+        ]);
+
         $superuser->assignRole('superuser');
-        $admin->assignRole('admin');
+        $user->assignRole('user');
         $auditor->assignRole('auditor');
+        $merchant->assignRole('merchant');
     }
 }
