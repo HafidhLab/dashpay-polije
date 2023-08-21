@@ -107,7 +107,7 @@ id="theme-settings-expand"
             class="text-primary fw-normal"
             href="https://themesberg.com"
             target="_blank"
-            >Developer By PT.Kreasi Cyber Indonesia</a
+            >Developer by PT.Kreasi Cyber Indonesia</a
           >
         </p>
       </div>

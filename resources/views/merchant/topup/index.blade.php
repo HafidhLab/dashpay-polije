@@ -9,12 +9,12 @@
                     @csrf
 
                     <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="user">User</label>
-                                <select name="user_id" id="user" class="form-control">
-                                    <option value="">-- Pilih --</option>
-                                </select>
-                            </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="user">User</label>
+                            <select name="user_id" id="user" class="form-control">
+                                <option value="">-- Pilih --</option>
+                            </select>
+                        </div>
                         <x-forms.input
                             name="balance"
                             label="Saldo Saat ini"

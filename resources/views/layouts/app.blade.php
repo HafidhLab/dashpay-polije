@@ -39,7 +39,7 @@
         @include('layouts.components.footer')
     </main>
 
-@include('layouts.partials.scripts'
+@include('layouts.partials.scripts')
 @stack('script')
 @livewireScripts
 </body>

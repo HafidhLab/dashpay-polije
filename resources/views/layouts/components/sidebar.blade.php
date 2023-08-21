@@ -110,7 +110,8 @@
         </li>
         @php
             $merchant = Auth::user()->hasRole('merchant');
-            $user = Auth::user()->hasRole('user')
+            $user = Auth::user()->hasRole('user');
+            $superuser = Auth::user()->hasRole('superuser');
         @endphp 
         <li class="nav-item">
           <a href="
@@ -119,6 +120,8 @@
               {{ route('merchant.dashboard') }}
             @elseif($user)
               {{ route('user.dashboard') }}
+            @elseif($superuser)
+              {{ route('superuser.dashboard') }}
             @endif
           " class="nav-link">
 
