@@ -121,6 +121,7 @@
               {{ route('user.dashboard') }}
             @endif
           " class="nav-link">
+
             <span class="sidebar-icon">
               <svg
                 class="icon icon-xs me-2"
