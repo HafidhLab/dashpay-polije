@@ -33,10 +33,15 @@
                                     </td>
                                 @endforeach
                                 <td>
-                                    <button class="btn btn-secondary">Edit</button>
-                                    <button class="btn btn-danger">Hapus</button>
+                                    <a href="{{ route('superuser.edit', $user) }}" class="btn btn-secondary">Edit</a>
+                                    <form action="{{ route('superuser.delete', $user) }}" method="POST" style="display: inline-block;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?')">Delete</button>
+                                    </form>
+                                    {{-- <button class="btn btn-danger">Hapus</button> --}}
                                     @if ($user->hasRole('merchant'))
-                                        <button class="text-white btn btn-success">Create Merchant</button>
+                                        <a href="{{ route('superuser.create.merchant', $user) }}" class="text-white btn btn-success">Create Merchant</a>
                                     @endif
                                 </td>
                             </tr>
