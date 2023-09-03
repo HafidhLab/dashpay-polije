@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\v1\AuthController;
 use App\Http\Controllers\Api\v1\BuyerController;
 use App\Http\Controllers\Api\v1\ProductController;
 use App\Http\Controllers\Api\v1\UserController;
@@ -11,6 +12,9 @@ Route::get('get-product-data/{id}', [ProductController::class, 'getProduct']);
 
 Route::get('/list-user', [UserController::class, 'getUser']);
 Route::post('buyer', [BuyerController::class, 'index']);
+
+// Authentication
+Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->get('user', function (Request $request) {
     return $request->user;
