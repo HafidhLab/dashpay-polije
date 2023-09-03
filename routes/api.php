@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/get-user-data/{id}', [UserController::class, 'getUserData']);
 Route::get('get-product-data/{id}', [ProductController::class, 'getProduct']);
 
+Route::get('/list-user', [UserController::class, 'getUser']);
 Route::post('buyer', [BuyerController::class, 'index']);
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+
+Route::middleware('auth:sanctum')->get('user', function (Request $request) {
+    return $request->user;
+});

@@ -8,6 +8,22 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+
+    public function index()
+    {
+        $user = User::select('name', 'balance')->get();
+
+        return response()->json($user, 200);
+    }
+
+    public function getUser()
+    {
+        $user = User::select('name', 'balance')->get();
+
+        return response()->json($user, 200);
+
+    }
+
     public function getUserData($id)
     {
         $user = User::find($id);
