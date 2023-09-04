@@ -28,6 +28,9 @@ class TopupController extends Controller
             'source_id'      => Auth::user()->id,
             'amount'         => $request->transfer, 
         ]);
+        
+
+        flash()->addSuccess('Terima kasih, Anda berhasil melakukan top-up.');
         return back();
     }
 }
