@@ -19,7 +19,7 @@
         />
     <x-forms.input
         name="price"
-        label="Barang satuan"
+        label="Harga Barang satuan"
         placeholder="Barang Satuan"
         type="number"
         required

@@ -20,18 +20,6 @@ class ProductRepositoryImplement implements ProductRepository{
         $this->model = $model;
     }
 
-    public function getAllProduct()
-    {
-        return $this->model->all();
-    }
-
-    public function createProduct(Request $request)
-    {
-
-        return $this->model->create($this->productData($request));
-        
-    }
-
     private function productData(Request $request): array
     {
         return [
@@ -41,4 +29,29 @@ class ProductRepositoryImplement implements ProductRepository{
         ];
 
     }
+
+    public function getAllProduct()
+    {
+        return $this->model->all();
+    }
+
+    public function createProduct(Request $request)
+    {
+
+        $this->model->create($this->productData($request));
+        flash()->addSuccess('Berhasil menambahkan produk');
+
+        return to_route('merchant.product.index');
+    }
+
+    public function deleteProduct($id)
+    {
+        $product =  $this->model->find($id);
+        $product->delete();
+        flash()->addSuccess('Berhasil menghapus product '. $product->name);
+        
+        return $product;
+    }
+
+
 }

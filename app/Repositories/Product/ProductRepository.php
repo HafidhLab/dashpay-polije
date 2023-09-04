@@ -8,5 +8,6 @@ interface ProductRepository{
 
     public function getAllProduct();
     public function createProduct(Request $request);
+    public function deleteProduct($id);
 
 }
