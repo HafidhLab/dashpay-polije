@@ -34,8 +34,8 @@
                             />
                         <x-forms.input
                             name="price_product"
-                            label="Barang satuan"
-                            placeholder="Barang Satuan"
+                            label="Jumlah barang dibeli"
+                            placeholder="Jumlah barang dibeli"
                             type="number"
                             required
                             />
