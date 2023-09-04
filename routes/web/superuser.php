@@ -1,8 +1,5 @@
 <?php
 
-// use App\Http\Livewire\SuperUser\Dashboard;
-// use App\Http\Livewire\SuperUser\Merchant;
-
 use App\Http\Controllers\SuperUser\DashboardController;
 use Illuminate\Support\Facades\Route;
 

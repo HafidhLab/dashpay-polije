@@ -11,6 +11,6 @@
                 <li class="breadcrumb-item active" aria-current="page">{{ $title ?? ''}}</li>
             </ol>
         </nav>
-        <h2 class="h4">{{ $title ?? ''}}</h2>
+        {{-- <h2 class="h4">{{ $title ?? ''}}</h2> --}}
     </div>
 </div>

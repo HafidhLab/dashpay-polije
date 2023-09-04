@@ -7,7 +7,7 @@
         required
         :value="old('code_product') ?? $product->code_product"
         />
-</div>
+    </div>
 <div class="row align-items-center">
     <x-forms.input
         name="name"

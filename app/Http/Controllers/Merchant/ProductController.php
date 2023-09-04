@@ -5,15 +5,23 @@ namespace App\Http\Controllers\Merchant;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\Product\ProductRepository;
 
 class ProductController extends Controller
 {
+
+    private $productRepository;
+
+    public function __construct(ProductRepository $productRepository)
+    {
+        $this->productRepository = $productRepository;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $products = Product::all();
+        $products = $this->productRepository->getAllProduct();
         return view('merchant.product.index', compact('products'));
     }
 
@@ -30,7 +38,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        Product::create($request->all());
+        $this->productRepository->createProduct($request);
         return to_route('merchant.product.index');
     }
 

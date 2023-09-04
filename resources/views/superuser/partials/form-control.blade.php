@@ -5,7 +5,7 @@
     placeholder="Masukkan Nama Lengkap..."
     type="text"
     required
-    value="$user->name ?? ''"
+    :value="$user->name ?? ''"
     />
 
     @error('name')

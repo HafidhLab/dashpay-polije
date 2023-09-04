@@ -16,10 +16,10 @@ class DashboardController extends Controller
         return view('superuser.index', compact('users'));
     }
 
-    public function create() {
+    public function create(User $user) {
 
         $roles = Role::pluck('name', 'id');
-        return view('superuser.create', compact('roles'));
+        return view('superuser.create', compact('user','roles'));
 
     }
 
