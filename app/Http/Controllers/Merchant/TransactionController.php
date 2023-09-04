@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use App\Models\Balance;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
@@ -33,11 +34,31 @@ class TransactionController extends Controller
     public function store(Request $request)
     {
 
-        $attr = $request->all();
-        $attr['user_merchant'] = Auth::user()->id;
-        $attr['status'] = 'unpaid';
-        Transaction::create($attr);
-        return back();
+        $buyer = User::find($request->user_id);
+
+        if ($buyer->balance <= $request->total) {
+            flash()->addWarning('Maaf, saldo tidak mencukupi');
+            return back();
+        }
+    
+        $transactionData = [
+            'user_id' => $request->user_id,
+            'name_item' => $request->name_item,
+            'user_merchant' => Auth::user()->id,
+            'status' => 'unpaid',
+            'price_product' => $request->price_product,
+            'total' => $request->total,
+            'information' => $request->information ?? ''
+        ];
+    
+        Transaction::create($transactionData);
+        
+        $buyer->update([
+            'balance' => $buyer->balance -= $request->total
+        ]);
+    
+        flash()->addSuccess('Terima kasih telah melakukan transaksi');
+        return redirect()->route('merchant.dashboard');
     }
 
     /**
