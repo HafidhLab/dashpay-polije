@@ -30,6 +30,7 @@ class UserController extends Controller
 
         if ($user) {
             return response()->json([
+                'name' => $user->name,
                 'email' => $user->email,
                 'balance' => $user->balance,
             ]);
