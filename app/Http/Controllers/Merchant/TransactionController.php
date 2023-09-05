@@ -41,21 +41,14 @@ class TransactionController extends Controller
             return back();
         }
     
-        $transactionData = [
-            'user_id' => $request->user_id,
-            'name_item' => $request->name_item,
-            'user_merchant' => Auth::user()->id,
-            'status' => 'unpaid',
-            'price_product' => $request->price_product,
-            'total' => $request->total,
-            'information' => $request->information ?? ''
-        ];
+        $transactionData = $request->only('user_id', 'name_item', 'price_product', 'total', 'information');
+        $transactionData['user_merchant'] = Auth::user()->id;
+        $transactionData['status'] = 'unpaid';
+        $transactionData['information'] = $request->information ?? '';
     
         Transaction::create($transactionData);
         
-        $buyer->update([
-            'balance' => $buyer->balance -= $request->total
-        ]);
+        $buyer->decrement('balance', $request->total);
     
         flash()->addSuccess('Terima kasih telah melakukan transaksi');
         return redirect()->route('merchant.dashboard');
