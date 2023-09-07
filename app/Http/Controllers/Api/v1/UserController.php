@@ -18,7 +18,7 @@ class UserController extends Controller
 
     public function getUser()
     {
-        $user = User::select('name', 'balance')->get();
+        $user = User::select('id', 'name', 'balance')->get();
 
         return response()->json($user, 200);
 
@@ -30,6 +30,7 @@ class UserController extends Controller
 
         if ($user) {
             return response()->json([
+                'id' => $user->id,
                 'email' => $user->email,
                 'balance' => $user->balance,
             ]);
