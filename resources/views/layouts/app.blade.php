@@ -5,12 +5,15 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- Primary Meta Tags -->
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ $title ?? 'Polijepay' }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="title" content="Volt Premium Bootstrap Dashboard - Sign in page">
-    <meta name="author" content="Themesberg">
+    <meta name="title"  content="Polijepay - PT.Kreasi Cyber Indonesia">
+    <meta name="author" content="PT.Kreasi Cyber Indonesia">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="Volt Pro is a Premium Bootstrap 5 Admin Dashboard featuring over 800 components, 10+ plugins and 20 example pages using Vanilla JS.">
+    <meta name="description" content="Polijepay adalah solusi e-money inovatif yang dapat berbelanja atau melakukan transaksi.">
+    <link rel="canonical" href="https://polije.kcbindo.co.id/">
+    <meta name="keywords" content="polijepay, polije, payment, keuangan, uang, bisnis">
+
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicon/apple-touch-icon.png">

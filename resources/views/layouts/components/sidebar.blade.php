@@ -44,7 +44,7 @@
             />
           </div>
           <div class="d-block">
-            <h2 class="h5 mb-3">Hi, Jane</h2>
+            <h2 class="h5 mb-3">Hi, {{ Auth::user()->name }}</h2>
             <a
               href="../../pages/examples/sign-in.html"
               class="btn btn-secondary btn-sm d-inline-flex align-items-center"
@@ -56,12 +56,7 @@
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-                ></path>
+              <path d="M160 112c0-35.3 28.7-64 64-64s64 28.7 64 64v48H160V112zm-48 48H48c-26.5 0-48 21.5-48 48V416c0 53 43 96 96 96H352c53 0 96-43 96-96V208c0-26.5-21.5-48-48-48H336V112C336 50.1 285.9 0 224 0S112 50.1 112 112v48zm24 48a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm152 24a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"> </path>
               </svg>
               Sign Out
             </a>
@@ -94,18 +89,18 @@
       <ul class="nav flex-column pt-3 pt-md-0">
         <li class="nav-item">
           <a
-            href="../../index.html"
+            href="#"
             class="nav-link d-flex align-items-center"
           >
-            <span class="sidebar-icon">
+            {{-- <span class="sideba`r-icon">
               <img
-                src="../../assets/img/brand/light.svg"
+                src="#"
                 height="20"
                 width="20"
                 alt="Volt Logo"
               />
-            </span>
-            <span class="mt-1 ms-1 sidebar-text">Volt Overview</span>
+            </span> --}}
+            <span class="mt-1 ms-1 sidebar-text">Polijepay</span>
           </a>
         </li>
         @php
@@ -154,17 +149,10 @@
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
-                    d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                  ></path>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
                 </svg>
               </span>
               <span class="sidebar-text">Produk</span>
-            </span>
-            <span>
-              <span class="badge badge-sm bg-secondary ms-1 text-gray-800"
-                >Pro</span
-              >
             </span>
           </a>
         </li>
@@ -182,17 +170,11 @@
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
-                    d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                  ></path>
+                <path d="M2.273 5.625A4.483 4.483 0 015.25 4.5h13.5c1.141 0 2.183.425 2.977 1.125A3 3 0 0018.75 3H5.25a3 3 0 00-2.977 2.625zM2.273 8.625A4.483 4.483 0 015.25 7.5h13.5c1.141 0 2.183.425 2.977 1.125A3 3 0 0018.75 6H5.25a3 3 0 00-2.977 2.625zM5.25 9a3 3 0 00-3 3v6a3 3 0 003 3h13.5a3 3 0 003-3v-6a3 3 0 00-3-3H15a.75.75 0 00-.75.75 2.25 2.25 0 01-4.5 0A.75.75 0 009 9H5.25z"></path>
+
                 </svg>
               </span>
               <span class="sidebar-text">Top Up</span>
-            </span>
-            <span>
-              <span class="badge badge-sm bg-secondary ms-1 text-gray-800"
-                >Pro</span
-              >
             </span>
           </a>
         </li>

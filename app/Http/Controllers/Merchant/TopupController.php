@@ -7,19 +7,18 @@ use App\Models\Balance;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
 class TopupController extends Controller
 {
-    public function index() {
+    public function index() 
+    {
         return view('merchant.topup.index');
     }
 
-    public function store(Request $request) {
-        
+    public function store(Request $request) 
+    {
         $user = User::find($request->user_id);
-        $topup = $user->balance += $request->transfer;
+        $user->increment('balance', $request->transfer);
 
-        $user->update(['balance' => $topup]);
         Balance::create([
             'operation_type' => 'topup',
             'target_type'    => 'user',
@@ -28,6 +27,8 @@ class TopupController extends Controller
             'source_id'      => Auth::user()->id,
             'amount'         => $request->transfer, 
         ]);
+
+        flash()->addSuccess('Terima kasih, Anda berhasil melakukan top-up.');
         return back();
     }
 }

@@ -11,8 +11,7 @@ class DasboardController extends Controller
     public function index() 
     {
 
-        $merchantRole = Role::where('name' ,'merchant')->first();
-        $merchants = $merchantRole ? $merchantRole->users : collect();
+        $merchants = Role::where('name', 'merchant')->first()->users ?? collect();
         
         return view('auditor.dashboard', compact('merchants'));
     }

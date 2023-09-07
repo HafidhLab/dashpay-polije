@@ -7,7 +7,7 @@
         required
         :value="old('code_product') ?? $product->code_product"
         />
-</div>
+    </div>
 <div class="row align-items-center">
     <x-forms.input
         name="name"
@@ -15,11 +15,11 @@
         placeholder="Nama Barang"
         type="text"
         required
-        :value="old('name') ?? $product->name_item"
+        :value="old('name') ?? $product->name"
         />
     <x-forms.input
         name="price"
-        label="Barang satuan"
+        label="Harga Barang satuan"
         placeholder="Barang Satuan"
         type="number"
         required
