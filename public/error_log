@@ -1,0 +1,5 @@
+[11-Sep-2023 18:00:26 Asia/Jakarta] PHP Warning:  require(/home/kcbindoc/polije.kcbindo.co.id/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/kcbindoc/polije.kcbindo.co.id/public/index.php on line 34
+[11-Sep-2023 18:00:26 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Failed opening required '/home/kcbindoc/polije.kcbindo.co.id/public/../vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/kcbindoc/polije.kcbindo.co.id/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/kcbindoc/polije.kcbindo.co.id/public/index.php on line 34

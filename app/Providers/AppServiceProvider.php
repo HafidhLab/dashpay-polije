@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-
+use Illuminate\Support\Facades\Schema;
 use App\Repositories\Product\ProductRepository;
 use App\Repositories\Product\ProductRepositoryImplement;
 use Illuminate\Support\Facades\URL;
@@ -23,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+         Schema::defaultStringLength(191);
+
         if (app()->environment('remote') || env('FORCE_HTTPS', false)) {
             URL::forceScheme('https');
         }
