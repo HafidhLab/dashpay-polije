@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Merchant;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Spatie\Permission\Models\Role;
 
 class DashboardController extends Controller
@@ -25,22 +26,27 @@ class DashboardController extends Controller
 
     public function store(Request $request)
     {
-        
         $this->validate($request, [
-            'name' => 'required',
+            'username' => 'required',
             'email' => 'required|email|unique:users',
             'role_id' => 'required|exists:roles,id',
         ]);
 
         $user = User::create([
-            'name' => $request->input('name'),
+            'username' => $request->input('username'),
             'email' => $request->input('email'),
             'password' => bcrypt('password'), // Set default password or customize as needed
-            'balance' => 0
+            'balance' => 0,
+            'isSuperUser' => 1
         ]);
 
         $role = Role::find($request->input('role_id'));
         $user->assignRole($role);
+
+        Http::post('https://bc.kcbindo.co.id/register', [
+            'username' => $request->input('username'),
+            'isSuperuser' => true
+        ]);
 
         return to_route('superuser.dashboard');
     }
