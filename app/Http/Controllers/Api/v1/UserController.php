@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\v1;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class UserController extends Controller
 {
@@ -37,5 +38,16 @@ class UserController extends Controller
         }
 
         return response()->json(['error' => 'User not found'], 404);
+    }
+
+    public function retrieveUser() 
+    {
+        $response = Http::post('https://bc.kcbindo.co.id/register', [
+            "username"      => "superuser123",
+            "walletAddress" => "0x1cdesfss",
+            "isSuperuser"   => true
+        ]);
+
+        return $response->body();
     }
 }
