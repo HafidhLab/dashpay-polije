@@ -34,6 +34,7 @@ class BuyerController extends Controller
             return response()->json([
                 'status' => true,
                 'user' => $user->name,
+                'amount' => $total,
                 'message' => 'Berhasil membayar'
             ]);
         } else {
