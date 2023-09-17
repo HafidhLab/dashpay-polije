@@ -13,6 +13,7 @@ Route::get('get-product-data/{id}', [ProductController::class, 'getProduct']);
 
 Route::get('/list-user', [UserController::class, 'getUser']);
 Route::post('buyer', [BuyerController::class, 'index']);
+Route::get('check-total-price-product', [BuyerController::class, 'checkTotalPriceProduct']);
 
 Route::get('/wallet', WalletController::class);
 Route::get('/register', [UserController::class, 'retrieveUser']);

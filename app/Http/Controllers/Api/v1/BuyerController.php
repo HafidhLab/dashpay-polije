@@ -45,4 +45,13 @@ class BuyerController extends Controller
             ]);
         }
     }
+
+    public function checkTotalPriceProduct(Request $request) {
+        $code_product = $request->input('code_product');
+        $count_item = $request->input('count_item');
+        $product = Product::where('code_product', $code_product)->first();
+        return response()->json([
+            'total' => $product->price * $count_item
+        ]);
+    }
 }
