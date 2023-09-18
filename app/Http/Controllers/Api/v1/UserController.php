@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -49,5 +50,33 @@ class UserController extends Controller
         ]);
 
         return $response->body();
+    }
+
+    public function getUserByRole()
+    {
+        $requestRole = request('role');
+    
+        try {
+            $role = Role::where('name', $requestRole)->firstOrFail();
+            $users = $role->users;
+            
+            return response()->json([
+                'success' => true,
+                'message' => 'Users with the role ' . $requestRole,
+                'data' => $users
+            ]);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Role not found',
+                'data' => []
+            ], 404);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'An error occurred',
+                'data' => []
+            ], 500);
+        }
     }
 }
