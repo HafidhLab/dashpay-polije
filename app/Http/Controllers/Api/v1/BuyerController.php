@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use App\Models\Product;
 use App\Models\Transaction;
 use App\Models\User;
@@ -33,7 +34,7 @@ class BuyerController extends Controller
             
             return response()->json([
                 'status' => true,
-                'username' => $user->name,
+                'username' => $user->username,
                 'amount' => $total,
                 'message' => 'Berhasil membayar'
             ]);
@@ -46,12 +47,15 @@ class BuyerController extends Controller
         }
     }
 
-    public function checkTotalPriceProduct(Request $request) {
+public function checkTotalPriceProduct(Request $request) {
         $code_product = $request->input('code_product');
         $count_item = $request->input('count_item');
         $product = Product::where('code_product', $code_product)->first();
         return response()->json([
-            'total' => $product->price * $count_item
+            'amount' => $product->price * $count_item
         ]);
     }
+
+
+
 }
