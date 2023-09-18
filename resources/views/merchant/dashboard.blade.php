@@ -1,6 +1,8 @@
 <x-app-layout>
     <x-breadcumb title="List Transaksi"/>
 
+    @include('merchant.common.card')
+    
     <div class="card">
         <div class="card-header">
             <div class="d-flex justify-content-between">
