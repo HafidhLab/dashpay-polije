@@ -47,9 +47,10 @@ class BuyerController extends Controller
         }
     }
 
-public function checkTotalPriceProduct(Request $request) {
+    public function checkTotalPriceProduct(Request $request) {
         $code_product = $request->input('code_product');
         $count_item = $request->input('count_item');
+        $merchantInput = $request->input('merchant');
         $product = Product::where('code_product', $code_product)->first();
         return response()->json([
             'amount' => $product->price * $count_item

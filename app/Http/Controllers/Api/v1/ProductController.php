@@ -15,6 +15,7 @@ class ProductController extends Controller
             return response()->json([
                 'name' => $product->name,
                 'price' => $product->price,
+                'merchant' => $product->merchant
             ]);
         }
 

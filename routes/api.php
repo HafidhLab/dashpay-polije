@@ -18,7 +18,7 @@ Route::post('buyer', [BuyerController::class, 'index']);
 Route::post('/check-total-price-product', [BuyerController::class, 'checkTotalPriceProduct']);
 
 Route::get('/wallet', WalletController::class);
-Route::get('/register', [UserController::class, 'retrieveUser']);
+Route::post('/register', [UserController::class, 'register']);
 
 
 // Authentication
