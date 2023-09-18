@@ -12,11 +12,13 @@ Route::get('/get-user-data/{id}', [UserController::class, 'getUserData']);
 Route::get('get-product-data/{id}', [ProductController::class, 'getProduct']);
 
 Route::get('/list-user', [UserController::class, 'getUser']);
+Route::post('user-role', [UserController::class, 'getUserByRole']);
+
 Route::post('buyer', [BuyerController::class, 'index']);
 Route::post('/check-total-price-product', [BuyerController::class, 'checkTotalPriceProduct']);
 
 Route::get('/wallet', WalletController::class);
-Route::get('/register', [UserController::class, 'retrieveUser']);
+Route::post('/register', [UserController::class, 'register']);
 
 
 // Authentication

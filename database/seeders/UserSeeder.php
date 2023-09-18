@@ -17,29 +17,25 @@ class UserSeeder extends Seeder
         $superuser = User::create([
             'username' => 'Super User',
             'email' => 'superuser@mail.com',
-            'password' => Hash::make('superuser123'),
-            'isSuperUser' => true,
+            'password' => Hash::make('superuser123')
         ]);
 
         $user = User::create([
             'username' => 'user',
             'email' => 'user@mail.com',
-            'password' => Hash::make('userr123'),
-            'isSuperUser' => false,
+            'password' => Hash::make('userr123')
         ]);
 
         $auditor = User::create([
             'username' => 'Auditor',
             'email' => 'auditor@mail.com',
-            'password' => Hash::make('auditor123'),
-            'isSuperUser' => false,
+            'password' => Hash::make('auditor123')
         ]);
 
         $merchant = User::create([
             'username' => 'Merchant',
             'email' => 'merchant@mail.com',
-            'password' => Hash::make('merchant123'),
-            'isSuperUser' => false,
+            'password' => Hash::make('merchant123')
         ]);
 
         $superuser->assignRole('superuser');
