@@ -16,7 +16,14 @@ return new class extends Migration
             $table->string('code_product', 64);
             $table->string('name', 64);
             $table->string('price', 64);
+            $table->unsignedBigInteger('user_id')->comment('merchant');
             $table->timestamps();
+
+            $table->foreign('user_id')
+                    ->references('id')
+                    ->on('users')
+                    ->cascadeOnDelete()
+                    ->cascadeOnUpdate();
         });
     }
 
