@@ -20,7 +20,7 @@ class SyncBalanceCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Sync Balance from injection blockchain';
 
     /**
      * Execute the console command.
