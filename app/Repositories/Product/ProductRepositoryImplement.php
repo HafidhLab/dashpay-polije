@@ -5,6 +5,7 @@ namespace App\Repositories\Product;
 use App\Models\Product;
 use App\Repositories\Product\ProductRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductRepositoryImplement implements ProductRepository{
 
@@ -25,7 +26,8 @@ class ProductRepositoryImplement implements ProductRepository{
         return [
             'code_product' => $request->code_product,
             'name' => $request->name,
-            'price' => $request->price
+            'price' => $request->price,
+            'user_id' => Auth::user()->id
         ];
 
     }

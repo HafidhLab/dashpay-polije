@@ -48,12 +48,30 @@ class BuyerController extends Controller
     }
 
     public function checkTotalPriceProduct(Request $request) {
+
         $code_product = $request->input('code_product');
         $count_item = $request->input('count_item');
-        $merchantInput = $request->input('merchant');
-        $product = Product::where('code_product', $code_product)->first();
+        $merchant_input = $request->input('merchant');
+
+        $product = Product::where('code_product', $code_product)
+            ->where('user_id', $merchant_input)->first();
+
+        if (!$product) {
+            return response()->json([
+                'error' => 'Product not found'
+            ], 404);
+        }
+
+        if (!is_numeric($count_item) || $count_item <= 0) {
+            return response()->json([
+                'error' => 'Invalid item count'
+            ], 400);
+        }
+
+        $totalPrice = $product->price * $count_item;
+
         return response()->json([
-            'amount' => $product->price * $count_item
+            'amount' => $totalPrice
         ]);
     }
 
