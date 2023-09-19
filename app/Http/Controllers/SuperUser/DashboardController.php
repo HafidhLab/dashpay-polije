@@ -37,16 +37,10 @@ class DashboardController extends Controller
             'email' => $request->input('email'),
             'password' => bcrypt('password'), // Set default password or customize as needed
             'balance' => 0,
-            'isSuperUser' => 1
         ]);
 
         $role = Role::find($request->input('role_id'));
         $user->assignRole($role);
-
-        Http::post('https://bc.kcbindo.co.id/register', [
-            'username' => $request->input('username'),
-            'isSuperuser' => true
-        ]);
 
         return to_route('superuser.dashboard');
     }
