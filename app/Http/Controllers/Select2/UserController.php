@@ -21,6 +21,6 @@ class UserController extends Controller
     private function getUserData(string $role, string $query)
     {
         return Role::where('name', $role)->first()->users()
-            ->where('name', 'like', "%{$query}%");
+            ->where('username', 'like', "%{$query}%");
     }
 }

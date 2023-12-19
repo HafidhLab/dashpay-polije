@@ -97,7 +97,7 @@
                         </td>
                         <td><span class="fw-normal">{{ $merchant->created_at }}</span></td>
                         <td>
-                          <a class="btn btn-primary btn-sm" href="{{ route('auditor.show', $merchant->name) }}"><span class="fas fa-eye me-2"></span>View Details</a>
+                          <a class="btn btn-primary btn-sm" href="{{ route('auditor.show', $merchant->name)  }}"><span class="fas fa-eye me-2"></span>View Details</a>
                         </td>
                     </tr>
                     @endforeach                              
