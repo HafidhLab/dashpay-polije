@@ -44,21 +44,45 @@ class UserController extends Controller
 
     public function register(Request $request) 
     {
-        $user = User::create([
+        
+        // Validasi input
+        $request->validate([
+            'username' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8',
+        ]);
+
+        $data = [
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-        ]);
-    
-        $role = Role::findByName('user');
+        ];
 
-        $user->assignRole($role);
-    
-        return response()->json([
-            'message' => 'User registered successfully',
-            'user' => $user,
-        ], 201);
+        // Membuat request POST ke server eksternal
+        try {
+            $response = Http::post('https://bc.kcbindo.co.id/register', $data)->body();
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Gagal melakukan request ke server eksternal'], 500);
+        }
+
+        // Membuat user baru di database lokal
+        try {
+            $user = User::create($data);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Gagal membuat user baru'], 500);
+        }
+
+        // Menetapkan role user
+        try {
+            $role = Role::findByName('user');
+            $user->assignRole($role);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Gagal menetapkan role user'], 500);
+        }
+
+        return response()->json($response, 201);
     }
+
 
     public function getUserByRole()
     {

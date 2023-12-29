@@ -53,13 +53,7 @@ class DashboardController extends Controller
     
     public function update(Request $request, User $user)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email,' . $user->id,
-            'role_id' => 'required|exists:roles,id',
-            'balance' => 0
-        ]);
-
+        
         $user->update([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
